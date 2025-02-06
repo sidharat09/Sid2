@@ -15,3 +15,10 @@
     cached_dirs:
     - /root/.m2/repository
     shell: BASH
+  - action: Send email
+    type: EMAIL
+    trigger_time: ON_FAILURE
+    title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_RUN_ID"
+    content: Ruun failed
+    send_as_html: true
+    recipients: sid30573@gmail.com
